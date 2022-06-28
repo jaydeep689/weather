@@ -14,8 +14,9 @@ export default function GetData(props) {
   const [time, settime] = useState("");
   const [name,setName] =useState("");
   const[region,setRegion]=useState("");
+
   useEffect(() => {
-    let url = `http://api.weatherapi.com/v1/current.json?key=ca86c342883a463296d50936222706&q=Gujarat&aqi=no`;
+    let url = `http://api.weatherapi.com/v1/current.json?key=ca86c342883a463296d50936222706&q=${props.loc}&aqi=no`;
     const fetchData = async () => {
       let data = await fetch(url);
       let parsdata = await data.json();
@@ -34,7 +35,7 @@ export default function GetData(props) {
       console.log(parsdata);
     };
     fetchData();
-  }, []);
+  }, [(props.loc)]);
 
   return (
     <div>

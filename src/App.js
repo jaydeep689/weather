@@ -1,8 +1,6 @@
 import "./App.css";
 import Navbar from "./component/Navbar";
-import GetData from "./component/GetData";
 import Box from "@mui/material/Box";
-
 
 function App() {
   return (
@@ -15,7 +13,6 @@ function App() {
         }}
       >
         <Navbar></Navbar>
-        <GetData></GetData>
       </Box>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -6,7 +6,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-
+import Button from "@mui/material/Button";
+import GetData from "./GetData";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -50,7 +51,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 export default function Navbar() {
-
+  const [location, setLocation] = useState("Goa");
+  const [value, setValue] = useState("");
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -69,13 +71,29 @@ export default function Navbar() {
                 <SearchIcon />
               </SearchIconWrapper>
               <StyledInputBase
+                onChange={(e) => {
+                  setValue(e.target.value);
+                }}
                 placeholder="Location…"
                 inputProps={{ "aria-label": "search" }}
               />
             </Search>
+            <Button
+              variant="outlined"
+              sx={{ color: "white" }}
+              onClick={() => {
+                setLocation(value);
+                setValue("")
+                console.log(location);
+                <GetData loc={location}></GetData>;
+              }}
+            >
+              Search
+            </Button>
           </Toolbar>
         </AppBar>
       </Box>
+      <GetData loc={location}></GetData>
     </>
   );
 }
