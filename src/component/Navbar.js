@@ -6,7 +6,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import Button from "@mui/material/Button";
 import GetData from "./GetData";
 
 const Search = styled("div")(({ theme }) => ({
@@ -53,6 +52,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Navbar() {
   const [location, setLocation] = useState("Goa");
   const [value, setValue] = useState("");
+
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -76,20 +76,17 @@ export default function Navbar() {
                 }}
                 placeholder="Location…"
                 inputProps={{ "aria-label": "search" }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setLocation(value);
+                    <GetData loc={location}></GetData>;
+                     e.target.value="";
+                  } else {
+                    return false;
+                  }
+                }}
               />
             </Search>
-            <Button
-              variant="outlined"
-              sx={{ color: "white" }}
-              onClick={() => {
-                setLocation(value);
-                setValue("")
-                console.log(location);
-                <GetData loc={location}></GetData>;
-              }}
-            >
-              Search
-            </Button>
           </Toolbar>
         </AppBar>
       </Box>
