@@ -5,15 +5,17 @@ import Box from "@mui/material/Box";
 function App() {
   return (
     <div className="App">
-      <Box
-        sx={{
-          height: "100vh",
-          backgroundImage: `url(${"daoudi-aissa-Pe1Ol9oLc4o-unsplash.jpg"})`,
-          backgroundSize: "cover",
-        }}
-      >
-        <Navbar></Navbar>
-      </Box>
+      <>
+        <Box
+          sx={{
+            height: "100vh",
+            backgroundImage: `url(${"francesca-hotchin-FN-cedy6NHA-unsplash.jpg"})`,
+            backgroundSize: "cover",
+          }}
+        >
+          <Navbar></Navbar>
+        </Box>
+      </>
     </div>
   );
 }

@@ -50,7 +50,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 export default function Navbar() {
-  const [location, setLocation] = useState("Goa");
+  const [location, setLocation] = useState("Ahmedabad");
   const [value, setValue] = useState("");
 
   return (

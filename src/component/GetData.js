@@ -12,8 +12,8 @@ export default function GetData(props) {
   const [Uv, setUv] = useState("");
   const [icon, setIcon] = useState("");
   const [time, settime] = useState("");
-  const [name,setName] =useState("");
-  const[region,setRegion]=useState("");
+  const [name, setName] = useState("");
+  const [region, setRegion] = useState("");
 
   useEffect(() => {
     let url = `http://api.weatherapi.com/v1/current.json?key=ca86c342883a463296d50936222706&q=${props.loc}&aqi=no`;
@@ -35,7 +35,7 @@ export default function GetData(props) {
       console.log(parsdata);
     };
     fetchData();
-  }, [(props.loc)]);
+  }, [props.loc]);
 
   return (
     <div>
